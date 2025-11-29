@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: SeedcomFood Operational Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .card-hover:hover { transform: translateY(-2px); transition: all 0.2s ease; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+        .active-tab { border-bottom: 2px solid #2563eb; color: #2563eb; font-weight: 600; }
+        .inactive-tab { color: #64748b; }
+    </style>
+    <!-- Chosen Palette: Corporate Clean (Slate, Blue, Emerald for success) - Professional and Data-Focused -->
+    <!-- Application Structure Plan: 
+         1. Hero Section: Immediate hook with Project Title and Key Metric (90% reduction).
+         2. Context & Alignment: A specialized section "The Bridge" that connects Retail Ops to Factory Ops (Research Summary).
+         3. The Transformation (PSPI): A tabbed interface allowing the user to switch between Problem, Solution, and Process.
+         4. Impact Dashboard: Interactive charts visualizing the Key Achievements (Time Savings, Accuracy).
+         5. Terminology Translator: An interactive toggle list mapping the candidate's experience to the JD's language.
+         6. Tech Stack: Visual grid of tools used.
+    -->
+    <!-- Visualization & Content Choices:
+         - Impact Charts: Bar chart for Time Reduction (Before/After) to visually prove efficiency.
+         - Accuracy Donut: To highlight the 99.5% accuracy achievement.
+         - Terminology Translator: Interactive list to directly address the "Transferable Skills" requirement.
+         - NO SVG/Mermaid used. All icons are unicode or CSS shapes. All charts are Chart.js.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="text-slate-800">
+
+    <!-- Navigation / Header -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-slate-900 tracking-tight">Portfolio<span class="text-blue-600">.Data</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-sm font-medium text-slate-500">Candidate: Senior Portfolio Strategist</span>
+                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white pb-12 pt-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-blue-800 bg-blue-100 mb-6">
+                Case Study: Digital Transformation
+            </div>
+            <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">
+                Operational Intelligence Dashboard <br class="hidden sm:block" /> & Data Pipeline
+            </h1>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
+                Transforming fragmented retail data into a centralized "Single Source of Truth" using SQL, Python, and Power BI.
+            </p>
+            
+            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                <div class="bg-slate-50 overflow-hidden shadow rounded-lg border border-slate-100 p-5">
+                    <dt class="text-sm font-medium text-slate-500 truncate">Query Response Time</dt>
+                    <dd class="mt-1 text-3xl font-semibold text-blue-600">-90%</dd>
+                    <dd class="mt-1 text-xs text-slate-400">From 48hrs to 2hrs</dd>
+                </div>
+                <div class="bg-slate-50 overflow-hidden shadow rounded-lg border border-slate-100 p-5">
+                    <dt class="text-sm font-medium text-slate-500 truncate">Manual Work Saved</dt>
+                    <dd class="mt-1 text-3xl font-semibold text-emerald-600">15 hrs/wk</dd>
+                    <dd class="mt-1 text-xs text-slate-400">Via Python Automation</dd>
+                </div>
+                <div class="bg-slate-50 overflow-hidden shadow rounded-lg border border-slate-100 p-5">
+                    <dt class="text-sm font-medium text-slate-500 truncate">Data Accuracy</dt>
+                    <dd class="mt-1 text-3xl font-semibold text-indigo-600">99.5%</dd>
+                    <dd class="mt-1 text-xs text-slate-400">Standardized Validation</dd>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+
+        <!-- Section 1: Strategic Alignment (The Bridge) -->
+        <section>
+            <div class="md:flex md:items-center md:justify-between mb-6">
+                <div>
+                    <h2 class="text-2xl font-bold text-slate-900">Strategic Alignment</h2>
+                    <p class="text-slate-500 mt-1">Bridging SeedcomFood Operations to Unilever Digital Manufacturing.</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 md:p-8">
+                <p class="text-slate-700 leading-relaxed mb-6">
+                    SeedcomFood operates in a high-velocity environment mirroring the "Digital Shopfloor." The core challenge—managing perishable inventory through rapid, data-driven decisions—is functionally identical to manufacturing OEE tracking. This project demonstrates the exact competency required for the <strong>Digital Transformation Project Coordinator</strong> role: deploying scalable use cases that bridge the gap between IT infrastructure and operational reality.
+                </p>
+                
+                <!-- Interactive Translator -->
+                <div class="bg-slate-50 rounded-lg p-6 border border-slate-200">
+                    <h3 class="text-sm font-semibold text-slate-900 uppercase tracking-wide mb-4">Terminology Translator (Interactive)</h3>
+                    <p class="text-xs text-slate-500 mb-4">Click rows to see the manufacturing equivalent of my experience.</p>
+                    <div class="overflow-hidden bg-white shadow sm:rounded-md">
+                        <ul role="list" class="divide-y divide-slate-200" id="translator-list">
+                            <!-- JS will populate this -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: The Journey (PSPI) -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-slate-900">Project Journey</h2>
+                <p class="text-slate-500 mt-1">From fragmented spreadsheets to automated insights.</p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                <!-- Tabs -->
+                <div class="border-b border-slate-200">
+                    <nav class="-mb-px flex" aria-label="Tabs">
+                        <button onclick="switchTab('problem')" id="tab-problem" class="active-tab w-1/3 py-4 px-1 text-center border-b-2 font-medium text-sm">The Problem</button>
+                        <button onclick="switchTab('solution')" id="tab-solution" class="inactive-tab w-1/3 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm hover:text-slate-700 hover:border-slate-300">The Solution</button>
+                        <button onclick="switchTab('process')" id="tab-process" class="inactive-tab w-1/3 py-4 px-1 text-center border-b-2 border-transparent font-medium text-sm hover:text-slate-700 hover:border-slate-300">My Process</button>
+                    </nav>
+                </div>
+
+                <!-- Tab Panels -->
+                <div class="p-6 md:p-8 min-h-[300px]">
+                    <div id="content-problem" class="block animate-fade-in">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4">Fragmented Data & Operational Blindspots</h3>
+                        <p class="text-slate-600 mb-4">Operational decision-making was hindered by siloed data sources. Critical business queries regarding inventory levels and fulfillment rates faced a <strong>48-hour latency</strong> due to manual compilation from disparate systems.</p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-5 w-5 text-red-500 font-bold">•</span>
+                                <span class="ml-2 text-slate-700">High risk of spoilage due to delayed reporting.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-5 w-5 text-red-500 font-bold">•</span>
+                                <span class="ml-2 text-slate-700">Excessive manual hours spent on Excel maintenance.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-5 w-5 text-red-500 font-bold">•</span>
+                                <span class="ml-2 text-slate-700">Lack of "Single Source of Truth" leading to conflicting KPIs.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="content-solution" class="hidden animate-fade-in">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4">Centralized Analytics Ecosystem</h3>
+                        <p class="text-slate-600 mb-4">I engineered a robust analytics infrastructure that automated data ingestion and visualization.</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-blue-900 mb-2">Technical Architecture</h4>
+                                <ul class="text-sm text-blue-800 space-y-2">
+                                    <li>1. <strong>SQL/Power Query:</strong> ETL pipeline to unify data streams.</li>
+                                    <li>2. <strong>Python/Power Automate:</strong> Scripts to automate routine data cleaning.</li>
+                                    <li>3. <strong>Power BI:</strong> Interactive front-end for operations managers.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg">
+                                <h4 class="font-bold text-indigo-900 mb-2">Key Features</h4>
+                                <ul class="text-sm text-indigo-800 space-y-2">
+                                    <li>• Near Real-time Stock Tracking</li>
+                                    <li>• Automated Order Fill Rate Calculation</li>
+                                    <li>• Drift/Discrepancy Alerts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-process" class="hidden animate-fade-in">
+                        <h3 class="text-lg font-bold text-slate-900 mb-4">Agile Implementation & Stakeholder Management</h3>
+                        <p class="text-slate-600 mb-4">My role extended beyond coding to change management and digital adoption.</p>
+                        <div class="space-y-4">
+                            <div class="flex">
+                                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">1</div>
+                                <div class="ml-4">
+                                    <h4 class="text-md font-bold text-slate-900">Requirement Gathering</h4>
+                                    <p class="text-sm text-slate-500">Collaborated with cross-functional teams to map critical KPIs like Shrinkage.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">2</div>
+                                <div class="ml-4">
+                                    <h4 class="text-md font-bold text-slate-900">Development & Automation</h4>
+                                    <p class="text-sm text-slate-500">Utilized DAX for calculations and Python for data bridge automation.</p>
+                                </div>
+                            </div>
+                            <div class="flex">
+                                <div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">3</div>
+                                <div class="ml-4">
+                                    <h4 class="text-md font-bold text-slate-900">Training & Handover</h4>
+                                    <p class="text-sm text-slate-500">Conducted workshops to ensure non-technical staff could leverage the insights.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Impact Visualization -->
+        <section>
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-slate-900">Quantifiable Impact</h2>
+                <p class="text-slate-500 mt-1">Measuring the efficiency gains delivered to the business.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Chart 1: Time Savings -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-4">Query Response Latency</h3>
+                    <div class="chart-container">
+                        <canvas id="latencyChart"></canvas>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-4 text-center">Reduced data retrieval time from 2 days to < 2 hours.</p>
+                </div>
+
+                <!-- Chart 2: Task Distribution -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
+                    <h3 class="text-lg font-semibold text-slate-900 mb-4">Weekly Analyst Hours</h3>
+                    <div class="chart-container">
+                        <canvas id="hoursChart"></canvas>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-4 text-center">Shifted 15 hours/week from manual entry to value-add analysis.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Tech Stack -->
+        <section class="pb-12">
+             <div class="bg-slate-900 rounded-xl shadow-lg p-8 text-center">
+                <h2 class="text-2xl font-bold text-white mb-8">Technical Stack Deployed</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition">
+                        <div class="text-blue-400 font-bold text-lg">SQL</div>
+                        <div class="text-slate-400 text-xs mt-1">Data Querying</div>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition">
+                        <div class="text-blue-400 font-bold text-lg">Python</div>
+                        <div class="text-slate-400 text-xs mt-1">Automation</div>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-yellow-500 transition">
+                        <div class="text-yellow-400 font-bold text-lg">Power BI</div>
+                        <div class="text-slate-400 text-xs mt-1">Visualization</div>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-green-500 transition">
+                        <div class="text-green-400 font-bold text-lg">Excel Macro</div>
+                        <div class="text-slate-400 text-xs mt-1">Legacy Support</div>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition">
+                        <div class="text-blue-400 font-bold text-lg">Power Automate</div>
+                        <div class="text-slate-400 text-xs mt-1">Workflows</div>
+                    </div>
+                    <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-purple-500 transition">
+                        <div class="text-purple-400 font-bold text-lg">DAX</div>
+                        <div class="text-slate-400 text-xs mt-1">Logic</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // --- Data ---
+        const terminologyData = [
+            { id: 1, seedcom: "Business Query Analysis", unilever: "Use-Case Requirement Gathering", desc: "Identifying operational pain points." },
+            { id: 2, seedcom: "Data Building / Processing", unilever: "Data Pipeline Engineering (ETL)", desc: "Structuring raw data for consumption." },
+            { id: 3, seedcom: "Real-time Stock Tracking", unilever: "Digital Shopfloor Visibility", desc: "Monitoring material flow in real-time." },
+            { id: 4, seedcom: "Automated Reporting", unilever: "Paperless Operations", desc: "Removing manual logbooks." },
+            { id: 5, seedcom: "Dashboard Deployment", unilever: "SOP Digitalization", desc: "Institutionalizing digital tools." }
+        ];
+
+        // --- Charts Initialization ---
+        document.addEventListener('DOMContentLoaded', function() {
+            // Chart 1: Latency
+            const ctxLatency = document.getElementById('latencyChart').getContext('2d');
+            new Chart(ctxLatency, {
+                type: 'bar',
+                data: {
+                    labels: ['Before (Manual)', 'After (Dashboard)'],
+                    datasets: [{
+                        label: 'Hours to Answer Query',
+                        data: [48, 2],
+                        backgroundColor: ['#94a3b8', '#2563eb'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.raw + ' Hours';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Hours' } }
+                    }
+                }
+            });
+
+            // Chart 2: Hours Saved
+            const ctxHours = document.getElementById('hoursChart').getContext('2d');
+            new Chart(ctxHours, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Manual Data Entry', 'Value-Add Analysis'],
+                    datasets: [
+                        {
+                            label: 'Before',
+                            data: [80, 20],
+                            backgroundColor: ['#94a3b8', '#e2e8f0'],
+                            weight: 1
+                        },
+                        {
+                            label: 'After',
+                            data: [20, 80],
+                            backgroundColor: ['#cbd5e1', '#10b981'],
+                            weight: 1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        title: { display: true, text: 'Shift in Work Focus (Inner: Before, Outer: After)' }
+                    }
+                }
+            });
+
+            // --- Populate Terminology List ---
+            const listContainer = document.getElementById('translator-list');
+            terminologyData.forEach(item => {
+                const li = document.createElement('li');
+                li.className = "hover:bg-slate-50 transition cursor-pointer";
+                li.innerHTML = `
+                    <div class="px-4 py-4 sm:px-6" onclick="toggleTerm(${item.id})">
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm font-medium text-blue-600 truncate w-1/3">${item.seedcom}</div>
+                            <div class="text-lg text-slate-300 mx-2">→</div>
+                            <div class="text-sm font-bold text-slate-900 w-1/3">${item.unilever}</div>
+                        </div>
+                        <div id="term-desc-${item.id}" class="hidden mt-2 text-xs text-slate-500 italic bg-slate-100 p-2 rounded">
+                            Mapping: ${item.desc}
+                        </div>
+                    </div>
+                `;
+                listContainer.appendChild(li);
+            });
+        });
+
+        // --- Interactions ---
+        function switchTab(tabName) {
+            // Hide all contents
+            ['problem', 'solution', 'process'].forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active-tab');
+                document.getElementById('tab-' + t).classList.add('inactive-tab');
+                document.getElementById('tab-' + t).classList.remove('border-b-2');
+                document.getElementById('tab-' + t).classList.add('border-transparent');
+            });
+
+            // Show selected
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            const activeBtn = document.getElementById('tab-' + tabName);
+            activeBtn.classList.add('active-tab');
+            activeBtn.classList.remove('inactive-tab');
+            activeBtn.classList.remove('border-transparent');
+        }
+
+        function toggleTerm(id) {
+            const el = document.getElementById('term-desc-' + id);
+            if (el.classList.contains('hidden')) {
+                el.classList.remove('hidden');
+            } else {
+                el.classList.add('hidden');
+            }
+        }
+    </script>
+</body>
+</html>

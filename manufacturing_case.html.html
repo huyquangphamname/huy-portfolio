@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: Manufacturing Process Digitization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .chart-container { position: relative; width: 100%; max-width: 600px; margin: 0 auto; height: 300px; }
+        .active-tab { border-bottom: 2px solid #0f766e; color: #0f766e; font-weight: 600; }
+        .inactive-tab { color: #64748b; }
+    </style>
+    <!-- 
+        Strategy: 
+        This page translates "Optimization Engineer" work into "Digital Transformation" language.
+        Key Concept: "Physical to Digital Bridge" - using BPMN and SOPs as the data layer for automation.
+    -->
+</head>
+<body class="text-slate-800">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-slate-900 tracking-tight">Portfolio<span class="text-teal-600">.Ops</span></a>
+            <a href="index.html" class="text-sm font-medium text-slate-500 hover:text-slate-900">← Back to Home</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="bg-white pb-12 pt-10">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-teal-800 bg-teal-100 mb-6">
+                Case Study: Manufacturing Optimization
+            </div>
+            <h1 class="text-4xl font-extrabold text-slate-900 sm:text-5xl mb-6">
+                From Workflow to Data Flow:<br>Shopfloor Digitization
+            </h1>
+            <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
+                Redesigning physical manufacturing processes (BPMN) to enable traceability, consistent throughput, and automation readiness.
+            </p>
+            
+            <div class="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
+                <div class="bg-slate-50 p-5 rounded-lg border border-slate-100">
+                    <dt class="text-sm font-medium text-slate-500">Throughput Increase</dt>
+                    <dd class="text-3xl font-semibold text-teal-600">+10%</dd>
+                    <dd class="text-xs text-slate-400">Via bottleneck elimination</dd>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-lg border border-slate-100">
+                    <dt class="text-sm font-medium text-slate-500">Defect Reduction</dt>
+                    <dd class="text-3xl font-semibold text-indigo-600">Traceability</dd>
+                    <dd class="text-xs text-slate-400">Standardized SOP Digitalization</dd>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-lg border border-slate-100">
+                    <dt class="text-sm font-medium text-slate-500">Supply Consistency</dt>
+                    <dd class="text-3xl font-semibold text-emerald-600">Reliable</dd>
+                    <dd class="text-xs text-slate-400">Optimized Material Flow</dd>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="max-w-6xl mx-auto px-4 py-12 space-y-16">
+        
+        <!-- Context: The Digital Factory -->
+        <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Connecting Operations to Data Systems</h2>
+            <p class="text-slate-700 leading-relaxed mb-6">
+                In a manufacturing environment (Nam Thuan), raw output is meaningless without data context. My role was to engineer the <strong>"Physical API"</strong> of the factory. By mapping manual workflows into standardized <strong>BPMN (Business Process Model and Notation)</strong>, I created the structure necessary for automation systems to ingest production results.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 p-4 rounded border border-slate-200">
+                    <h3 class="font-bold text-slate-900">Before: The "Black Box"</h3>
+                    <p class="text-sm text-slate-600 mt-2">Workshops operated on tribal knowledge. Defect roots were untraceable because processes varied by shift. No clean data for ERP systems.</p>
+                </div>
+                <div class="bg-teal-50 p-4 rounded border border-teal-200">
+                    <h3 class="font-bold text-teal-900">After: The "Glass Factory"</h3>
+                    <p class="text-sm text-teal-800 mt-2">Processes mapped in BPMN. Critical Quality Points (CTQ) defined as data entry nodes. Ready for full automated logging.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Journey -->
+        <section>
+            <div class="border-b border-slate-200 mb-6">
+                <nav class="flex space-x-8">
+                    <button onclick="switchTab('analysis')" id="tab-analysis" class="active-tab pb-4 text-sm font-medium">1. Analysis & Mapping</button>
+                    <button onclick="switchTab('action')" id="tab-action" class="inactive-tab pb-4 text-sm font-medium hover:text-slate-700">2. Standardization (SOP)</button>
+                    <button onclick="switchTab('result')" id="tab-result" class="inactive-tab pb-4 text-sm font-medium hover:text-slate-700">3. Automation Readiness</button>
+                </nav>
+            </div>
+
+            <div id="content-analysis" class="animate-fade-in block">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Identify the Bottleneck</h3>
+                <p class="text-slate-600 mb-6">Using Time & Motion studies, I identified that material staging accounted for 30% of downtime.</p>
+                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                    <canvas id="bottleneckChart"></canvas>
+                </div>
+            </div>
+
+            <div id="content-action" class="animate-fade-in hidden">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Redesigning the Workflow</h3>
+                <p class="text-slate-600 mb-4">I utilized <strong>BPMN</strong> to redesign the flow, integrating Quality Checkpoints that serve as data collection triggers.</p>
+                <ul class="space-y-2 text-sm text-slate-700">
+                    <li class="flex items-center"><span class="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>Step 1: Standardized input materials to reduce variation.</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>Step 2: Implemented "Digital Handshakes" between inventory and shop floor.</li>
+                    <li class="flex items-center"><span class="w-2 h-2 bg-teal-500 rounded-full mr-2"></span>Step 3: Created visual SOPs to ensure 100% compliance.</li>
+                </ul>
+            </div>
+
+            <div id="content-result" class="animate-fade-in hidden">
+                <h3 class="text-lg font-bold text-slate-900 mb-2">The Result: Predictable Output</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <canvas id="throughputChart"></canvas>
+                        <p class="text-center text-xs text-slate-500 mt-2">Throughput stability significantly improved post-optimization.</p>
+                    </div>
+                    <div class="flex flex-col justify-center space-y-4">
+                        <div class="p-4 bg-emerald-50 rounded-lg border border-emerald-100">
+                            <span class="block text-emerald-800 font-bold text-lg">10% Increase</span>
+                            <span class="text-emerald-600 text-sm">Total Throughput</span>
+                        </div>
+                        <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
+                            <span class="block text-blue-800 font-bold text-lg">Digital Ready</span>
+                            <span class="text-blue-600 text-sm">Process is now capable of IoT integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        // Charts
+        const bottleneckCtx = document.getElementById('bottleneckChart').getContext('2d');
+        new Chart(bottleneckCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Machine Time', 'Material Staging', 'Quality Checks', 'Idle/Wait'],
+                datasets: [{
+                    label: 'Time Distribution (Original)',
+                    data: [45, 30, 15, 10],
+                    backgroundColor: ['#cbd5e1', '#ef4444', '#cbd5e1', '#cbd5e1']
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: {display: false} } }
+        });
+
+        const throughputCtx = document.getElementById('throughputChart').getContext('2d');
+        new Chart(throughputCtx, {
+            type: 'line',
+            data: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
+                datasets: [{
+                    label: 'Throughput (Units)',
+                    data: [82, 85, 83, 91, 93, 95], // Jump after optimization
+                    borderColor: '#0f766e',
+                    tension: 0.4,
+                    fill: true,
+                    backgroundColor: 'rgba(15, 118, 110, 0.1)'
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        // Tabs
+        function switchTab(tab) {
+            ['analysis', 'action', 'result'].forEach(t => {
+                document.getElementById('content-' + t).classList.add('hidden');
+                document.getElementById('tab-' + t).classList.remove('active-tab');
+                document.getElementById('tab-' + t).classList.add('inactive-tab');
+            });
+            document.getElementById('content-' + tab).classList.remove('hidden');
+            document.getElementById('tab-' + tab).classList.add('active-tab');
+            document.getElementById('tab-' + tab).classList.remove('inactive-tab');
+        }
+    </script>
+</body>
+</html>
