@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Nexus Bank — IT Business Analyst</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+  .card-hover:hover { transform: translateY(-2px); transition: all .2s ease; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
+  .active-tab { border-bottom: 2px solid #2563eb; color: #2563eb; font-weight: 600; }
+  .inactive-tab { color: #64748b; }
+</style>
+</head>
+<body class="text-slate-800">
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16">
+      <div class="flex items-center"><a href="index.html" class="text-xl font-bold text-slate-900">Portfolio<span class="text-blue-600">.BA</span></a></div>
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="text-sm font-medium text-slate-500 hover:text-slate-800">← Back to Projects</a>
+        <a href="mailto:pqhuy.0127@gmail.com" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white pb-12 pt-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-blue-800 bg-blue-100 mb-6">Case Study: IT Business Analyst · Banking &amp; FinTech</div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">Nexus Bank <br class="hidden sm:block"/> Smart Personal-Finance App</h1>
+      <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">A unified, personalized banking app — express eKYC onboarding, instant QR transfers, and smart money management — specified end-to-end as Business Analyst.</p>
+      <p class="mt-3 text-sm text-slate-500">Role: Business Analyst · MindX BAX16.01 capstone (qualified marks) · improved toward production-readiness</p>
+      <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-blue-600">≤3s</dd><dt class="mt-1 text-xs text-slate-500">QR transfer (target)</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-emerald-600">23</dd><dt class="mt-1 text-xs text-slate-500">User stories (BDD)</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-indigo-600">28</dd><dt class="mt-1 text-xs text-slate-500">Test cases</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-purple-600">12</dd><dt class="mt-1 text-xs text-slate-500">NFRs (perf/security/DR)</dt></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    <div class="bg-amber-50 border border-amber-300 rounded-lg px-4 py-3 text-sm text-amber-900">
+      <strong>⚠ Academic capstone — not a licensed banking product.</strong> Banking is regulated; figures are targets/assumptions and compliance notes are directional research, not legal advice.
+      <a href="docs/nexus-bank/DISCLAIMER.md" class="underline font-medium">Full disclaimer &amp; view-only license →</a>
+    </div>
+
+    <section>
+      <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">Project Journey</h2><p class="text-slate-500 mt-1">From a complex, drop-off-heavy banking signup to a unified, personalized finance app.</p></div>
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div class="border-b border-slate-200"><nav class="-mb-px flex">
+          <button onclick="t('problem')" id="tab-problem" class="active-tab w-1/3 py-4 text-center border-b-2 font-medium text-sm">The Problem</button>
+          <button onclick="t('solution')" id="tab-solution" class="inactive-tab w-1/3 py-4 text-center border-b-2 border-transparent font-medium text-sm hover:text-slate-700">The Solution</button>
+          <button onclick="t('process')" id="tab-process" class="inactive-tab w-1/3 py-4 text-center border-b-2 border-transparent font-medium text-sm hover:text-slate-700">My BA Process</button>
+        </nav></div>
+        <div class="p-6 md:p-8 min-h-[300px]">
+          <div id="content-problem" class="block">
+            <h3 class="text-lg font-bold text-slate-900 mb-4">Friction &amp; fragmentation in mobile banking</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start"><span class="text-red-500 font-bold">•</span><span class="ml-2 text-slate-700">Complex multi-step signup → high new-user drop-off.</span></li>
+              <li class="flex items-start"><span class="text-red-500 font-bold">•</span><span class="ml-2 text-slate-700">Apps limited to fixed services; no holistic money management.</span></li>
+              <li class="flex items-start"><span class="text-red-500 font-bold">•</span><span class="ml-2 text-slate-700">Crude risk assessment; little personalization.</span></li>
+            </ul>
+          </div>
+          <div id="content-solution" class="hidden">
+            <h3 class="text-lg font-bold text-slate-900 mb-4">Unified, personalized finance platform</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="bg-blue-50 p-4 rounded-lg"><h4 class="font-bold text-blue-900 mb-2">MVP epics</h4><ul class="text-sm text-blue-800 space-y-2">
+                <li>• Express onboarding: phone/OTP + <b>eKYC</b> (OCR CCCD + face match)</li>
+                <li>• Login via PIN/biometrics, new-device verification</li>
+                <li>• <b>QR transfer</b> (static/dynamic) + transaction history</li>
+                <li>• PFM: auto-categorize, budgets, spending reports &amp; alerts</li></ul></div>
+              <div class="bg-indigo-50 p-4 rounded-lg"><h4 class="font-bold text-indigo-900 mb-2">Non-functional &amp; security</h4><ul class="text-sm text-indigo-800 space-y-2">
+                <li>• TLS 1.3 / AES-256, MFA for high-value transfers</li>
+                <li>• ≤3s QR transfer, 10k concurrent users / 100 TPS</li>
+                <li>• Uptime 99.9%, RPO=0, RTO ≤15m</li>
+                <li>• Personas: Finance / Investor / ESG (Phase 2)</li></ul></div>
+            </div>
+          </div>
+          <div id="content-process" class="hidden">
+            <h3 class="text-lg font-bold text-slate-900 mb-4">How I worked as the BA</h3>
+            <div class="space-y-4">
+              <div class="flex"><div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">1</div><div class="ml-4"><h4 class="font-bold text-slate-900">Discovery &amp; BRD</h4><p class="text-sm text-slate-500">Context, scope (MVP vs Phase 2), business drivers, stakeholders.</p></div></div>
+              <div class="flex"><div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">2</div><div class="ml-4"><h4 class="font-bold text-slate-900">Backlog &amp; modeling</h4><p class="text-sm text-slate-500">23 BDD user stories + DoD, FR/NFR, BPMN account-opening flows, FDD, WBS (man-hours).</p></div></div>
+              <div class="flex"><div class="flex-shrink-0 h-8 w-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold">3</div><div class="ml-4"><h4 class="font-bold text-slate-900">Production-readiness (this improvement)</h4><p class="text-sm text-slate-500">Added 28 test cases, ERD + sequence diagrams, traceability, a weighted readiness scorecard, and a banking compliance/security gap analysis — learning from the champion (LAHO) team.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">BA Deliverables</h2><p class="text-slate-500 mt-1">Full requirements package + production-readiness artifacts.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">BRD + FR/NFR</h3><p class="text-sm text-slate-600">Business case, scope, FR-1/2/3 + 12 NFRs (perf, security, DR).</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">23 User Stories (BDD)</h3><p class="text-sm text-slate-600">Given/When/Then + acceptance criteria + Definition of Done.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">ERD &amp; Sequences</h3><p class="text-sm text-slate-600">Data model + eKYC, QR transfer (+MFA), auto-categorize flows.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">28 Test Cases</h3><p class="text-sm text-slate-600">Functional, security, performance/load, DR, compatibility.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Readiness Scorecard</h3><p class="text-sm text-slate-600">Weighted 7-dimension production-readiness assessment.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Compliance &amp; Security</h3><p class="text-sm text-slate-600">SBV licensing, eKYC, AML, Data Protection Law 2025, PCI-DSS.</p></div>
+      </div>
+      <div class="mt-6 bg-slate-50 rounded-xl border border-slate-200 p-6">
+        <h3 class="font-bold text-slate-900 mb-1">Documentation <span class="text-xs font-normal text-slate-400">(view-only · opens in browser)</span></h3>
+        <p class="text-xs text-slate-500 mb-4">Office files open in the Office Online viewer, diagrams in diagrams.net, Markdown renders on GitHub — read-only. Reuse requires permission · <a href="docs/nexus-bank/DISCLAIMER.md" class="text-blue-600 underline">disclaimer &amp; license</a>.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
+          <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fhuyquangphamname%2Fhuy-portfolio%2Fmain%2Fdocs%2Fnexus-bank%2FNexus_TestCases_Traceability_Readiness.xlsx">✅ Test Cases · Traceability · Readiness (.xlsx)</a>
+          <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://viewer.diagrams.net/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhuyquangphamname%2Fhuy-portfolio%2Fmain%2Fdocs%2Fnexus-bank%2FNexus_Diagrams.drawio">🗺️ ERD + Sequence Diagrams (.drawio)</a>
+          <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://github.com/huyquangphamname/huy-portfolio/blob/main/docs/nexus-bank/Nexus_ProductionReadiness_and_Compliance.md">🏦 Production-Readiness &amp; Compliance (.md)</a>
+          <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://github.com/huyquangphamname/huy-portfolio/tree/main/docs/nexus-bank">📁 All documents (folder)</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="pb-12"><div class="bg-slate-900 rounded-xl shadow-lg p-8 text-center">
+      <h2 class="text-2xl font-bold text-white mb-8">BA Toolkit</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition"><div class="text-blue-400 font-bold">BPMN</div><div class="text-slate-400 text-xs mt-1">Process</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition"><div class="text-blue-400 font-bold">User Stories</div><div class="text-slate-400 text-xs mt-1">BDD</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-yellow-500 transition"><div class="text-yellow-400 font-bold">ERD / UML</div><div class="text-slate-400 text-xs mt-1">Modeling</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-green-500 transition"><div class="text-green-400 font-bold">FR / NFR</div><div class="text-slate-400 text-xs mt-1">Specs</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-purple-500 transition"><div class="text-purple-400 font-bold">Test Cases</div><div class="text-slate-400 text-xs mt-1">QA</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition"><div class="text-blue-400 font-bold">WBS</div><div class="text-slate-400 text-xs mt-1">Planning</div></div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-12"><div class="max-w-5xl mx-auto px-6 text-center">
+    <p class="mb-2">Pham Quang Huy · IT Business Analyst</p><p class="text-sm">pqhuy.0127@gmail.com · Built with HTML &amp; Tailwind CSS</p>
+  </div></footer>
+
+  <script>
+    function t(n){['problem','solution','process'].forEach(x=>{document.getElementById('content-'+x).classList.add('hidden');var b=document.getElementById('tab-'+x);b.classList.remove('active-tab');b.classList.add('inactive-tab','border-transparent');});document.getElementById('content-'+n).classList.remove('hidden');var a=document.getElementById('tab-'+n);a.classList.add('active-tab');a.classList.remove('inactive-tab','border-transparent');}
+  </script>
+</body>
+</html>
