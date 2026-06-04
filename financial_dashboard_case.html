@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study: Financial Performance Dashboard — Finance Analytics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+  .card-hover:hover { transform: translateY(-2px); transition: all .2s ease; box-shadow: 0 10px 15px -3px rgba(0,0,0,.1); }
+</style>
+</head>
+<body class="text-slate-800">
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between h-16">
+      <div class="flex items-center"><a href="index.html" class="text-xl font-bold text-slate-900">Portfolio<span class="text-blue-600">.BA</span></a></div>
+      <div class="flex items-center space-x-4">
+        <a href="index.html" class="text-sm font-medium text-slate-500 hover:text-slate-800">← Back to Projects</a>
+        <a href="mailto:pqhuy.0127@gmail.com" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-white pb-12 pt-10">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center rounded-full px-3 py-1 text-sm font-medium text-emerald-800 bg-emerald-100 mb-6">Case Study: Finance Analytics · BI &amp; Reporting Automation</div>
+      <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">Financial Performance Dashboard <br class="hidden sm:block"/> (P&amp;L by Channel)</h1>
+      <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">A multi-channel Profit &amp; Loss reporting solution that turns a slow, manual monthly compilation into a single parameterized query feeding an automated dashboard — with revenue, profitability and product-category breakdowns.</p>
+      <p class="mt-3 text-sm text-slate-500">Role: Data / Finance Analyst · SQL · Google BigQuery · Power BI</p>
+      <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-emerald-600">−80%</dd><dt class="mt-1 text-xs text-slate-500">Manual reporting effort</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-blue-600">4</dd><dt class="mt-1 text-xs text-slate-500">Sales channels unified</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-indigo-600">9</dd><dt class="mt-1 text-xs text-slate-500">P&amp;L metric lines</dt></div>
+        <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5"><dd class="text-3xl font-semibold text-purple-600">6</dd><dt class="mt-1 text-xs text-slate-500">Product categories</dt></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+    <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-600">
+      <strong>Note.</strong> Internal analytics project — system identifiers omitted and figures generalized for confidentiality. Presented to illustrate analytics methodology.
+    </div>
+
+    <!-- Problem / Solution / Contribution -->
+    <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <h2 class="text-lg font-bold text-slate-900 mb-3">Business Problem</h2>
+        <p class="text-sm text-slate-600">Monthly P&amp;L was assembled by hand from several aggregated tables and spreadsheets, one channel at a time. It was slow, error-prone, and could not be sliced by product category — so finance had limited visibility into where revenue and margin actually came from.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <h2 class="text-lg font-bold text-slate-900 mb-3">Solution</h2>
+        <p class="text-sm text-slate-600">A single parameterized BigQuery transform (one <code>report_month</code> input) maps every revenue, deduction and COGS metric onto a fixed reporting template — one row per template cell, with 7 keys to JOIN straight into the finance workbook and Power BI, refreshed automatically each month.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6">
+        <h2 class="text-lg font-bold text-slate-900 mb-3">Outcome</h2>
+        <p class="text-sm text-slate-600">Cut manual reporting effort by ~80%, gave finance a consistent, drill-down view of revenue and profitability by channel and product category, and removed double-counting through explicit total/voucher exclusion rules.</p>
+      </div>
+    </section>
+
+    <!-- Scope -->
+    <section>
+      <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">Scope</h2><p class="text-slate-500 mt-1">What the dashboard measures.</p></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Revenue Analysis</h3><p class="text-sm text-slate-600">Gross revenue from goods, shipping fee &amp; membership, split across Store / Ecom / Agent / Grab.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Profitability Analysis</h3><p class="text-sm text-slate-600">Deductions (promotion, markdown, loyalty, vouchers) and COGS rolled up to gross profit.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Category Breakdown</h3><p class="text-sm text-slate-600">Fresh food, Dairy &amp; Ice cream, FMCG, Chilled/Frozen, Bakery &amp; Deli, Others.</p></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5 card-hover"><h3 class="font-bold text-slate-900 mb-1">Financial KPI Dashboard</h3><p class="text-sm text-slate-600">Monthly KPI view in Power BI with channel and category filters; automated refresh.</p></div>
+      </div>
+    </section>
+
+    <!-- My Contributions -->
+    <section>
+      <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">My Contributions</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl border border-slate-200 p-5"><ul class="text-sm text-slate-700 space-y-2">
+          <li>• Designed the data model &amp; ETL logic mapping aggregated source tables onto the reporting template schema</li>
+          <li>• Wrote a single parameterized BigQuery (GoogleSQL) <code>SELECT … UNION ALL …</code> covering revenue, deductions and COGS</li>
+        </ul></div>
+        <div class="bg-white rounded-xl border border-slate-200 p-5"><ul class="text-sm text-slate-700 space-y-2">
+          <li>• Joined a line-level source to add product-category breakdown the aggregate tables lacked</li>
+          <li>• Built the interactive Power BI dashboard and automated the monthly reporting cycle</li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section class="pb-12"><div class="bg-slate-900 rounded-xl shadow-lg p-8 text-center">
+      <h2 class="text-2xl font-bold text-white mb-8">Toolkit</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-blue-500 transition"><div class="text-blue-400 font-bold">Advanced SQL</div><div class="text-slate-400 text-xs mt-1">CTE · UNION · CASE</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-emerald-500 transition"><div class="text-emerald-400 font-bold">Google BigQuery</div><div class="text-slate-400 text-xs mt-1">GoogleSQL</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-yellow-500 transition"><div class="text-yellow-400 font-bold">Power BI</div><div class="text-slate-400 text-xs mt-1">DAX · Dashboard</div></div>
+        <div class="bg-slate-800 p-4 rounded-lg border border-slate-700 hover:border-purple-500 transition"><div class="text-purple-400 font-bold">Excel</div><div class="text-slate-400 text-xs mt-1">Template · VLOOKUP</div></div>
+      </div>
+    </div></section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-12"><div class="max-w-5xl mx-auto px-6 text-center">
+    <p class="mb-2">Pham Quang Huy · Data / Finance Analyst</p><p class="text-sm">pqhuy.0127@gmail.com · Built with HTML &amp; Tailwind CSS</p>
+  </div></footer>
+</body>
+</html>

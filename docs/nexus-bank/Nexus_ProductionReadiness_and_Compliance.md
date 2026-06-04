@@ -1,20 +1,19 @@
 # Nexus Bank — Production-Readiness Gap Analysis & Banking Compliance
 
-> Mục tiêu (theo yêu cầu): nâng dự án Nexus Bank từ bài capstone (đã đạt điểm qualified) lên gần với **sản phẩm production**,
-> học best-practice từ nhóm vô địch **LAHO**. Nexus = ứng dụng tài chính/ngân hàng thông minh (eKYC onboarding, QR transfer,
-> quản lý tài chính cá nhân, đầu tư & ESG ở Phase 2).
+> Mục tiêu: phân tích khoảng cách (gap) đưa Nexus Bank từ đặc tả MVP tiến gần **sản phẩm production** theo **chuẩn ngành ngân hàng**.
+> Nexus = ứng dụng tài chính/ngân hàng thông minh (eKYC onboarding, QR transfer, quản lý tài chính cá nhân, đầu tư & ESG ở Phase 2).
 >
-> ⚠️ Đây vẫn là **deliverable học thuật**, các con số là **mục tiêu/giả định**, **chưa kiểm chứng production** — xem `DISCLAIMER.md`.
+> ⚠️ Đây là **dự án ý tưởng (conceptual)**, các con số là **mục tiêu/giả định**, **chưa kiểm chứng production** — xem `DISCLAIMER.md`.
 
 ## 1. Nexus đã có (điểm mạnh — giữ)
 - BRD đầy đủ (context, scope MVP/Phase 2, business drivers), 23 **User Stories** chuẩn BDD + Acceptance Criteria + DoD.
 - **FR-1.x** (Onboarding/eKYC/Auth), **FR-2.x** (QR transaction), **FR-3.x** (PFM); **NFR-001..012** (perf, security, DR, uptime).
 - **WBS** chi tiết (man-hours theo BA/UIUX/FE/BE/Test/PM), BPMN luồng mở tài khoản (nhanh & thường), FDD, Wireframe.
 
-## 2. Gap → production (đóng bằng best-practice LAHO + chuẩn ngành)
+## 2. Gap → production (theo chuẩn ngành)
 | Hạng mục | Trạng thái Nexus | Gap để "near-production" | Đã bổ sung ở đây |
 |---|---|---|---|
-| **Test Cases** | Thiếu bộ test riêng | LAHO có bộ Booking Flow Test Cases bài bản | ✅ `Nexus_TestCases_..xlsx` (28 case, format LAHO) |
+| **Test Cases** | Thiếu bộ test riêng | Cần bộ test bài bản (functional/security/perf/DR) | ✅ `Nexus_TestCases_..xlsx` (28 case) |
 | **Sequence Diagram** | Chưa thấy | Mỗi luồng chính cần sequence | ✅ `Nexus_Diagrams.drawio` (eKYC, QR transfer, auto-categorize) |
 | **ERD / Data model** | Chưa rõ | Cần mô hình dữ liệu | ✅ ERD trong `Nexus_Diagrams.drawio` |
 | **Traceability** | Rời rạc | Epic→FR→US→NFR→TC | ✅ sheet Traceability |
@@ -53,5 +52,4 @@
 4. **Phase 2:** Investment & Wealth, ESG/Carbon (đã có user stories US 14–22).
 
 ### Nguồn tham khảo
-- Best-practice nội bộ: nhóm vô địch LAHO (Booking Flow Test Cases, FRS/SRS).
-- Barem chấm điểm chính thức: `[MX _ BAI] Final Project_Yêu cầu đề bài & Tiêu chí đánh giá`.
+- Chuẩn ngành: hướng dẫn eKYC/AML, Luật Bảo vệ dữ liệu cá nhân 2025, PCI-DSS, thông lệ kiểm thử (functional/security/perf/DR).

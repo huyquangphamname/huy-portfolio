@@ -39,13 +39,14 @@
                 Case Study: IT Business Analyst · Recruitment (HR-Tech)
             </div>
             <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl mb-6">
-                GenG — Applicant Tracking System <br class="hidden sm:block" /> (Demo MVP)
+                GenG — Applicant Tracking System <br class="hidden sm:block" /> (HR-Tech)
             </h1>
             <p class="mt-4 text-xl text-slate-600 max-w-2xl mx-auto">
-                As the Business Analyst, I owned the requirements for an ATS that replaces manual, email/Excel-based
-                CV screening with centralized data, OCR parsing, and a one-click hiring pipeline.
+                SMEs managed recruitment manually through spreadsheets and email, causing poor candidate tracking and slow,
+                inconsistent screening. As the Business Analyst, I owned the requirements for an ATS that centralizes
+                candidate management, automates CV screening, and enforces role-based access for recruiters and hiring managers.
             </p>
-            <p class="mt-3 text-sm text-slate-500">Role: Business Analyst · Client brief: GAP Global · MindX BAX16.01 capstone · Team project</p>
+            <p class="mt-3 text-sm text-slate-500">Role: Business Analyst — requirements owner · Client brief: GAP Global · 2 actor roles · 9 use cases · 9 FR / 10 NFR</p>
 
             <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
                 <div class="bg-slate-50 shadow rounded-lg border border-slate-100 p-5">
@@ -71,11 +72,9 @@
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
 
         <!-- Disclaimer banner -->
-        <div class="bg-amber-50 border border-amber-300 rounded-lg px-4 py-3 text-sm text-amber-900">
-            <strong>⚠ Academic MVP — not production-validated.</strong> This is a MindX capstone (Demo MVP).
-            All metrics are targets/assumptions, legal references must be re-verified, and nothing here should be
-            deployed or used for business/legal decisions as-is.
-            <a href="docs/geng-ats/DISCLAIMER.md" class="underline font-medium">Full disclaimer &amp; view-only license →</a>
+        <div class="bg-slate-50 border border-slate-200 rounded-lg px-4 py-3 text-sm text-slate-600">
+            <strong>Note.</strong> Conceptual project — figures are design targets/assumptions, not measured production results.
+            <a href="docs/geng-ats/DISCLAIMER.md" class="underline font-medium">Disclaimer &amp; view-only license →</a>
         </div>
 
         <!-- Journey tabs -->
@@ -145,6 +144,17 @@
             <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 card-hover">
                 <div class="chart-container"><canvas id="impactChart"></canvas></div>
                 <p class="text-sm text-slate-500 mt-4 text-center">Manual screening (~8h / 100 CVs) → keyword filter returning results in &lt;3 seconds.</p>
+            </div>
+        </section>
+
+        <!-- Process model (BPMN) -->
+        <section>
+            <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">Process Model — BPMN 2.0</h2>
+                <p class="text-slate-500 mt-1">As-is recruitment process modeled with standard BPMN: swimlanes per actor, exclusive gateways, message flows, and a candidate-record data store.</p></div>
+            <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4">
+                <img src="docs/geng-ats/BPMN_GenG_WEB-current_process_ATS.drawio.png" alt="GenG ATS — As-is recruitment process, BPMN 2.0 (HR, Candidate, Department-Manager lanes)" class="w-full rounded-lg border border-slate-100" loading="lazy" />
+                <p class="text-xs text-slate-500 mt-3 text-center">As-is process — lanes: HR / Candidate / Department Manager · gateways Ex1–Ex3 · message flows to the candidate · "candidate result" data store.
+                    <a class="text-blue-600 underline" target="_blank" rel="noopener" href="https://viewer.diagrams.net/?url=https%3A%2F%2Fraw.githubusercontent.com%2Fhuyquangphamname%2Fhuy-portfolio%2Fmain%2Fdocs%2Fgeng-ats%2FGenG_Diagrams.drawio">Open As-is + To-be + 8 sequences (.drawio) →</a></p>
             </div>
         </section>
 

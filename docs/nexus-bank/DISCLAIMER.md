@@ -1,9 +1,9 @@
 # ⚠️ Disclaimer & Usage Notice — Nexus Bank Business Analysis Documents
 
-**Author / Owner:** Phạm Quang Huy · pqhuy.0127@gmail.com · MindX BAX16.01 capstone (team project, qualified marks).
+**Author / Owner:** Phạm Quang Huy · pqhuy.0127@gmail.com · Business Analysis case study (team project).
 
 ## 1. Not production-validated (IMPORTANT)
-Nexus Bank is an **academic capstone / Demo concept**, not a licensed banking product. These documents have **NOT been
+Nexus Bank is a **conceptual project**, not a licensed banking product. These documents have **NOT been
 validated for real-world, in-production use**.
 
 - All figures are **targets/assumptions, not measured results** (e.g. OCR ≥95%, face match ≥0.9, transfer ≤3s,

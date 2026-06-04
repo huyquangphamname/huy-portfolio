@@ -1,10 +1,10 @@
 # ⚠️ Disclaimer & Usage Notice — GenG ATS Business Analysis Documents
 
 **Author / Owner:** Phạm Quang Huy · pqhuy.0127@gmail.com
-**Context:** MindX Technology School — IT Business Analyst program (BAX16.01), capstone project. Client brief by GAP Global.
+**Context:** Business Analysis case study. Client brief by GAP Global.
 
 ## 1. Not production-validated (IMPORTANT)
-These documents are an **academic / training deliverable for a Demo MVP**, produced for learning and portfolio purposes.
+These documents are a **conceptual / portfolio deliverable**, produced to demonstrate Business Analysis methodology.
 They have **NOT been validated for real-world, in-production use**. Specifically:
 
 - All figures are **targets or assumptions, not measured production results** — e.g. "−30% manual data entry",
