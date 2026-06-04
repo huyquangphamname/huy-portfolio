@@ -158,6 +158,71 @@
             </div>
         </section>
 
+        <!-- Field-level data specification -->
+        <section>
+            <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">Field-Level Data Specification</h2>
+                <p class="text-slate-500 mt-1">Field-by-field specs for the three core functions, from FRS v1.2 — control type, required/editable, data type, and the rules each field enforces.</p></div>
+
+            <div class="space-y-8">
+                <!-- FR-001 Upload -->
+                <div>
+                    <h3 class="font-bold text-slate-900 mb-2"><span class="text-blue-600">FR-001</span> · CV Upload</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wide">
+                                <tr><th class="px-3 py-2 text-left">ID</th><th class="px-3 py-2 text-left">Field</th><th class="px-3 py-2 text-left">Control</th><th class="px-3 py-2 text-left">Required</th><th class="px-3 py-2 text-left">Editable</th><th class="px-3 py-2 text-left">Data type</th><th class="px-3 py-2 text-left">Description</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-700">
+                                <tr><td class="px-3 py-2 font-mono text-xs">01US-00</td><td class="px-3 py-2">CV File</td><td class="px-3 py-2">File upload</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">—</td><td class="px-3 py-2">FILE</td><td class="px-3 py-2">.pdf / .doc / .docx (reject → ER03); size ≤ limit (ER05)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">01US-01</td><td class="px-3 py-2">Vacancy</td><td class="px-3 py-2">Select</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Position tagged to the CV at upload (links FR-006)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">01US-02</td><td class="px-3 py-2">Bulk upload</td><td class="px-3 py-2">Checkbox</td><td class="px-3 py-2">No</td><td class="px-3 py-2">—</td><td class="px-3 py-2">BOOLEAN</td><td class="px-3 py-2">Queue multiple files for processing (TC-UP-005)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">01US-03</td><td class="px-3 py-2">Initial status</td><td class="px-3 py-2">System (auto)</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">No</td><td class="px-3 py-2">ENUM('New')</td><td class="px-3 py-2">Defaults to 'New' after a successful upload (AC1.4)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- FR-002 Parsing -->
+                <div>
+                    <h3 class="font-bold text-slate-900 mb-2"><span class="text-blue-600">FR-002</span> · CV Parsing — 5 core fields (OCR/NLP)</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wide">
+                                <tr><th class="px-3 py-2 text-left">ID</th><th class="px-3 py-2 text-left">Field</th><th class="px-3 py-2 text-left">Control</th><th class="px-3 py-2 text-left">Required</th><th class="px-3 py-2 text-left">Editable</th><th class="px-3 py-2 text-left">Data type</th><th class="px-3 py-2 text-left">Description</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-700">
+                                <tr><td class="px-3 py-2 font-mono text-xs">02US-00</td><td class="px-3 py-2">Full name</td><td class="px-3 py-2">Text box</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Candidate name</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">02US-01</td><td class="px-3 py-2">Email</td><td class="px-3 py-2">Text box</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Email address</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">02US-02</td><td class="px-3 py-2">Job position</td><td class="px-3 py-2">Text box</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Position applied for</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">02US-03</td><td class="px-3 py-2">Years of experience</td><td class="px-3 py-2">Text box</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">DECIMAL</td><td class="px-3 py-2">Computed from YYYY-MM dates</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">02US-04</td><td class="px-3 py-2">Skills</td><td class="px-3 py-2">Select</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Skill keywords</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-2">Recommendation (v1.2): add Phone (and consider Education, Certifications) — market parsers typically extract 7+ fields.</p>
+                </div>
+
+                <!-- FR-003 Search/Filter -->
+                <div>
+                    <h3 class="font-bold text-slate-900 mb-2"><span class="text-blue-600">FR-003</span> · Search / Filter by keyword</h3>
+                    <div class="overflow-x-auto rounded-xl border border-slate-200">
+                        <table class="min-w-full text-sm">
+                            <thead class="bg-slate-100 text-slate-600 text-xs uppercase tracking-wide">
+                                <tr><th class="px-3 py-2 text-left">ID</th><th class="px-3 py-2 text-left">Field</th><th class="px-3 py-2 text-left">Control</th><th class="px-3 py-2 text-left">Required</th><th class="px-3 py-2 text-left">Editable</th><th class="px-3 py-2 text-left">Data type</th><th class="px-3 py-2 text-left">Description</th></tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100 text-slate-700">
+                                <tr><td class="px-3 py-2 font-mono text-xs">03US-00</td><td class="px-3 py-2">Keyword</td><td class="px-3 py-2">Text box</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">VARCHAR</td><td class="px-3 py-2">Skill / experience keyword; case-insensitive (AC2.4)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">03US-01</td><td class="px-3 py-2">Filter field</td><td class="px-3 py-2">Select</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">ENUM</td><td class="px-3 py-2">Skill / Position (FR-006) / Created date (FR-007)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">03US-02</td><td class="px-3 py-2">Multi-criteria filter</td><td class="px-3 py-2">Multi-select</td><td class="px-3 py-2">No</td><td class="px-3 py-2">Yes</td><td class="px-3 py-2">ARRAY</td><td class="px-3 py-2">Combine criteria, AND logic (TC-KEY-004)</td></tr>
+                                <tr><td class="px-3 py-2 font-mono text-xs">03US-03</td><td class="px-3 py-2">Result list</td><td class="px-3 py-2">Table / List (output)</td><td class="px-3 py-2">—</td><td class="px-3 py-2">No</td><td class="px-3 py-2">—</td><td class="px-3 py-2">Matches in &lt; 3s (NFR-001); empty → "No matching candidate" (AC2.3)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <p class="text-xs text-slate-500 mt-4">Source: <a class="text-blue-600 underline" target="_blank" rel="noopener" href="https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fraw.githubusercontent.com%2Fhuyquangphamname%2Fhuy-portfolio%2Fmain%2Fdocs%2Fgeng-ats%2FGenG_FRS_v1.2.docx">FRS v1.2 — full specification (.docx)</a></p>
+        </section>
+
         <!-- BA Deliverables -->
         <section>
             <div class="mb-6"><h2 class="text-2xl font-bold text-slate-900">BA Deliverables</h2>
